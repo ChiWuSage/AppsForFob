@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import com.parse.ParseAnalytics;
 import com.parse.ParseObject;
@@ -23,12 +25,20 @@ public class MainActivity extends ActionBarActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
-    ParseObject testObject = new ParseObject("TestObject");
-    testObject.put("foo", "bar");
-    testObject.saveInBackground();
-
     ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+    //show tip spinner
+    tipSpinner();
+
+  }
+
+  public void tipSpinner()
+  {
+    Spinner spinner = (Spinner) findViewById(R.id.spinnerTipPercent);
+    ArrayAdapter<CharSequence> tipPercentAdapter = ArrayAdapter.createFromResource(this, R.array.tipPercent, android.R.layout.simple_spinner_item);
+    tipPercentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    spinner.setAdapter(tipPercentAdapter);
+    spinner.setSelection(1);
   }
 
   @Override

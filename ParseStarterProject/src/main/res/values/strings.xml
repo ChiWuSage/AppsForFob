@@ -15,4 +15,10 @@
 
     <string name="hello_world">Hello World!</string>
     <string name="action_settings">Settings</string>
+    <string-array name="tipPercent">
+        <item>5%</item>
+        <item>10%</item>
+        <item>13%</item>
+        <item>15%</item>
+    </string-array>
 </resources>
